@@ -1,13 +1,15 @@
 @import "_reset.scss";
+@import "_fontIcon.scss";
 @import "_variable.scss";
 @import "_flexbox.scss";
 @import "_dataAttribute.scss";
-@import "mediaQueries.scss";
+@import "_mediaQueries.scss";
 
 html {
     touch-action: manipulation;
     height: 100%;
-    /* 橫向排列，且垂直置中的外觀 */
+    
+    /* 橫向排列，且垂直置中的外觀
     @mixin flexBox($direction) {
         display: flex;
         flex-direction: $direction;
@@ -15,7 +17,7 @@ html {
     @mixin flexAlign($alignItems, $justifyContent) {
         align-items: $alignItems;
         justify-content: $justifyContent;
-    }
+    } */
     
     /* shortCut圖片設定 */
     $shortCut: 'shortCut_btn01',
@@ -68,6 +70,10 @@ html {
             img {
                 width: auto;
                 height: 35px;
+            }
+            .icon {
+                color: #F3C26C;
+                font-size: 5vh;
             }
         }
         .main-container {
