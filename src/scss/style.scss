@@ -1,126 +1,366 @@
-                @import "_reset.scss";
-                @import "_fontIcon.scss";
-                @import "_variable.scss";
-                @import "_flexbox.scss";
-                @import "_dataAttribute.scss";
-                @import "_mediaQueries.scss";
-                html {
-                    touch-action: manipulation;
-                    height: 100%;
-                    /* header menu圖片設定 */
-                    $headMenu: 'top_menu_01', 'top_menu_02', 'top_menu_03', 'top_menu_04', 'top_menu_05';
-                    @each $currentPic in $headMenu {
-                        .#{$currentPic} {
-                            background: url('../img/#{$currentPic}.png') no-repeat center;
+@import "_reset.scss";
+@import "_fontIcon.scss";
+@import "_variable.scss";
+@import "_flexbox.scss";
+@import "_dataAttribute.scss";
+@import "_mediaQueries.scss";
+img {
+    max-width: 100%;
+}
+
+html {
+    touch-action: manipulation;
+    height: 100%;
+    /* header menu圖片設定 */
+    $headMenu: 'top_menu_01', 'top_menu_02', 'top_menu_03', 'top_menu_04', 'top_menu_05';
+    @each $currentPic in $headMenu {
+        .#{$currentPic} {
+            background: url('../img/#{$currentPic}.png') no-repeat center;
+        }
+    }
+    /* footer menu圖片設定 */
+    $footMenu: 'bottom_menu_01',
+    'bottom_menu_02',
+    'bottom_menu_03',
+    'bottom_menu_04',
+    'bottom_menu_05',
+    'bottom_menu_06';
+    @each $currentPic in $footMenu {
+        .#{$currentPic} {
+            background: url('../img/#{$currentPic}.png') no-repeat center;
+        }
+    }
+    body {
+        font-family: "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        touch-action: manipulation;
+        height: 100%;
+        .main-wrap {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            background: url('../img/bg.jpg') no-repeat;
+            // background: url('../img/lobby_工作區域\ 1.png\ 的副本.png') no-repeat;
+            background-size: 100% 100%;
+            .header {
+                height: 180px;
+                .header-l {
+                    height: 80px;
+                }
+                .user {
+                    min-width: 45vh;
+                    height: 80px;
+                    position: relative;
+                    background: url('../img/user_status_bg.png') no-repeat;
+                    background-size: 100% 100%;
+                    padding: 15px;
+                    margin-right: 30px;
+                    .user-light {
+                        position: absolute;
+                        bottom: -35px;
+                        left: 50%;
+                        margin-left: -180px;
+                    }
+                    .user-pic {
+                        width: 8vh;
+                        border-radius: 50%;
+                        overflow: hidden;
+                        margin-right: 15px;
+                    }
+                    .user-info {
+                        margin-right: 10px;
+                        p {
+                            color: #ffffff;
+                            font-size: 16px;
+                            font-weight: bold;
+                            margin-bottom: 8px;
+                        }
+                        .user-grade {
+                            height: 24px;
+                            background-color: #101B2C;
+                            border-radius: 24px;
+                            .progress-bar {
+                                width: 75%;
+                                height: 24px;
+                                background: #fff00e;
+                                /* Old browsers */
+                                background: -moz-linear-gradient(top, #fff00e 0%, #f8cb0a 100%);
+                                /* FF3.6-15 */
+                                background: -webkit-linear-gradient(top, #fff00e 0%, #f8cb0a 100%);
+                                /* Chrome10-25,Safari5.1-6 */
+                                background: linear-gradient(to bottom, #fff00e 0%, #f8cb0a 100%);
+                                /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                                border: 1px solid #FFF00E;
+                                border-radius: 24px;
+                                text-align: center;
+                            }
+                            .sr-only {
+                                font-size: 16px;
+                                font-weight: bold;
+                                line-height: 24px;
+                                color: #101B2C;
+                            }
                         }
                     }
-                    /* footer menu圖片設定 */
-                    $footMenu: 'bottom_menu_01',
-                    'bottom_menu_02',
-                    'bottom_menu_03',
-                    'bottom_menu_04',
-                    'bottom_menu_05',
-                    'bottom_menu_06';
-                    @each $currentPic in $footMenu {
-                        .#{$currentPic} {
-                            background: url('../img/#{$currentPic}.png') no-repeat center;
+                    .user-star {
+                        width: 14vh;
+                        img {
+                            height: 40px;
+                            margin-right: 10px;
+                        }
+                        span {
+                            font-weight: bold;
+                            color: #ffffff;
                         }
                     }
-                    body {
-                        font-family: "Microsoft JhengHei", "Helvetica Neue", Helvetica, Arial, sans-serif;
-                        touch-action: manipulation;
-                        height: 100%;
-                        .main-wrap {
+                }
+                .amount {
+                    max-width: 30vh;
+                    height: 40px;
+                    position: relative;
+                    background: #003c69;
+                    /* Old browsers */
+                    background: -moz-linear-gradient(top, #003c69 0%, #003b67 50%, #003155 51%, #003155 100%);
+                    /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top, #003c69 0%, #003b67 50%, #003155 51%, #003155 100%);
+                    /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom, #003c69 0%, #003b67 50%, #003155 51%, #003155 100%);
+                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    border: 1px solid #055A96;
+                    border-radius: 15px;
+                    .amount-icon {
+                        width: 60px;
+                        height: 60px;
+                        position: absolute;
+                        top: -10px;
+                        left: -10px;
+                    }
+                    p {
+                        font-size: 24px;
+                        font-weight: bold;
+                        color: #ffffff;
+                        line-height: 40px;
+                        text-align: right;
+                        padding: 0 15px 0 60px;
+                    }
+                }
+                .header-r {
+                    a {
+                        background-size: contain;
+                        position: relative;
+                        color: #ffffff;
+                        display: block;
+                        .mark {
+                            width: 30px;
+                            height: 30px;
+                            border-radius: 50%;
+                            background-color: #CB0F03;
+                            border: 3px solid #FF4E40;
                             position: absolute;
-                            background: url('../img/bg.jpg') no-repeat;
-                            // background: url('../img/lobby_工作區域\ 1.png\ 的副本.png') no-repeat;
-                            background-size: 100% 100%;
-                            .header {
-                                height: 180px;
-                                .user {
-                                    width: 400px;
-                                    height: 94px;
-                                    background: url('../img/user_status_bg.png') no-repeat;
-                                    background-size: contain;
-                                }
-                                .amount {
-                                    width: 230px;
-                                    height: 44px;
-                                    background-color: #003C69;
-                                    border: 1px solid #055A96;
-                                    border-radius: 15px;
-                                }
-                                .header-r {
-                                    width: auto;
-                                    a {
-                                        width: 160px;
-                                        height: 185px;
-                                        background-size: contain;
-                                        position: relative;
-                                        color: #ffffff;
-                                        display: block;
-                                        .mark {
-                                            width: 30px;
-                                            height: 30px;
-                                            border-radius: 50%;
-                                            background-color: #CB0F03;
-                                            border: 3px solid #FF4E40;
-                                            position: absolute;
-                                            font-size: 22px;
-                                            font-weight: bold;
-                                            line-height: 30px;
-                                            text-align: center;
-                                            right: 10px;
-                                            bottom: 40px;
-                                        }
-                                    }
-                                }
+                            font-size: 22px;
+                            font-weight: bold;
+                            line-height: 30px;
+                            text-align: center;
+                            right: 10px;
+                            bottom: 40px;
+                        }
+                    }
+                }
+            }
+            .container {
+                position: relative;
+                flex: 1;
+                .giftList {
+                    width: 20%;
+                    position: absolute;
+                    background: url('../img/daily_quest_header.png') no-repeat top;
+                    background-size: contain;
+                    padding-top: 140px;
+                    top: -100px;
+                    left: 30px;
+                    z-index: 99;
+                    a {
+                        width: 100%;
+                        height: 11vh;
+                        background: url('../img/quest_bg.png') no-repeat center;
+                        background-size: contain;
+                        position: relative;
+                        padding: 0 20px;
+                        &.active::before {
+                            width: 100%;
+                            height: 11vh;
+                            position: absolute;
+                            content: "";
+                            background: url('../img/quest_bg_blur.png') no-repeat center;
+                            background-size: contain;
+                            -moz-filter: blur(8px);
+                            -webkit-filter: blur(8px);
+                            -o-filter: blur(8px);
+                            -ms-filter: blur(8px);
+                            filter: blur(8px);
+                            z-index: -1;
+                            left: 0px;
+                        }
+                        &.active span {
+                            width: 60px;
+                        }
+                        span {
+                            width: 50px;
+                            display: block;
+                            margin-right: 10px;
+                            img {
+                                width: 100%;
+                                height: auto;
                             }
-                            .container {
-                                flex: 1;
-                                padding: 0 30px;
-                                .giftList {
-                                    width: 400px;
-                                    margin-top: -60px;
-                                    a {
-                                        width: 380px;
-                                        background: url('../img/quest_bg.png') no-repeat center;
-                                        background-size: contain;
-                                        display: block;
-                                    }
-                                }
-                                .mainGame {
-                                    width: 1790px;
-                                    a {
-                                        width: 460px;
-                                        display: block;
-                                        img {
-                                            width: 100%;
-                                        }
-                                    }
-                                }
-                            }
-                            .footer {
-                                height: 84px;
-                                background-color: #07222D;
-                                .chatroom {
-                                    width: 550px;
-                                    height: 220px;
-                                    position: absolute;
-                                    background-color: #071824;
-                                    border: 1px solid #063554;
-                                    left: 0px;
-                                    bottom: 0px;
-                                }
-                                .footMenu {
-                                    a {
-                                        width: 178px;
-                                        height: 64px;
-                                        background-size: contain;
-                                        display: block;
-                                    }
-                                }
+                        }
+                        .giftList-icon {
+                            width: 100px;
+                            position: absolute;
+                            top: 0px;
+                            right: -20px;
+                            img {
+                                width: 100%;
+                                height: auto;
                             }
                         }
                     }
                 }
+            }
+            .mainGame {
+                width: 75%;
+                position: absolute;
+                right: 30px;
+                top: 30px;
+                a {
+                    // width: 440px;
+                    width: 45vh;
+                    display: block;
+                    img {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+        .footer {
+            height: 84px;
+            background-color: #07222D;
+            .chatroom {
+                width: 545px;
+                height: 200px;
+                position: absolute;
+                background-color: #071824;
+                border: 1px solid #063554;
+                left: 0px;
+                bottom: 0px;
+                z-index: 999;
+                padding: 10px;
+                .chatroom-top {
+                    flex: 1;
+                    overflow: hidden;
+                    margin-bottom: 10px;
+                    ul {
+                        color: #ffffff;
+                        overflow: auto;
+                        margin-right: 10px;
+                        li {
+                            line-height: 26px;
+                            margin-bottom: 10px;
+                        }
+                        li:last-child {
+                            margin-bottom: 0px;
+                        }
+                    }
+                }
+                .chatList-icon-01,
+                .chatList-icon-02,
+                .chatList-icon-03 {
+                    width: 70px;
+                    height: 26px;
+                    color: #ffffff;
+                    font-size: 16px;
+                    font-weight: bold;
+                    text-align: center;
+                    line-height: 26px;
+                    text-shadow: 1px 1px 1px rgba($color: #000000, $alpha: 0.8);
+                    border-radius: 3px;
+                    margin-right: 10px;
+                }
+                .chatList-icon-01 {
+                    background: #ffdb00;
+                    /* Old browsers */
+                    background: -moz-linear-gradient(top, #ffdb00 0%, #f26900 100%);
+                    /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top, #ffdb00 0%, #f26900 100%);
+                    /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom, #ffdb00 0%, #f26900 100%);
+                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                }
+                .chatList-icon-02 {
+                    background: #47b4ff;
+                    /* Old browsers */
+                    background: -moz-linear-gradient(top, #47b4ff 0%, #1e75ff 100%);
+                    /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top, #47b4ff 0%, #1e75ff 100%);
+                    /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom, #47b4ff 0%, #1e75ff 100%);
+                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                }
+                .chatList-icon-03 {
+                    background: #ff6536;
+                    /* Old browsers */
+                    background: -moz-linear-gradient(top, #ff6536 0%, #ff2703 100%);
+                    /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top, #ff6536 0%, #ff2703 100%);
+                    /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom, #ff6536 0%, #ff2703 100%);
+                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                }
+                .chatList-text {
+                    flex: 1;
+                }
+                .font-green {
+                    color: #8DC21F;
+                }
+                .font-blue {
+                    color: #2AB7D6;
+                }
+                .font-yellow {
+                    color: #F5E800;
+                }
+                .font-orange {
+                    color: #F35915;
+                }
+                .chatroom-bottom {
+                    height: 35px;
+                    input {
+                        @include boxSizing;
+                        width: 100%;
+                        position: relative;
+                        background-color: #032E39;
+                        border: 0;
+                        border-radius: 3px;
+                        height: 35px;
+                        padding: 5px 10px;
+                        margin-right: 10px;
+                    }
+                }
+            }
+            .footMenu {
+                width: 100%;
+                height: 100%;
+                padding: 0 10px;
+                a {
+                    // width: 178px;
+                    // height: 64px;
+                    width: 20vh;
+                    height: 8vh;
+                    background-size: contain;
+                    display: block;
+                    margin-right: 3px;
+                }
+                a:last-child {
+                    margin-right: 0;
+                }
+            }
+        }
+    }
+}
