@@ -1,30 +1,38 @@
 @import "_reset.scss";
-@import "_fontIcon.scss";
 @import "_variable.scss";
 @import "_flexbox.scss";
 @import "_dataAttribute.scss";
-@import "_mediaQueries.scss";
 img {
     max-width: 100%;
+}
+
+@keyframes scaleDraw {
+    0% {
+        transform: scale(1);
+    }
+    25% {
+        transform: scale(1.1);
+    }
+    50% {
+        transform: scale(1);
+    }
+    75% {
+        transform: scale(1.1);
+    }
+}
+
+.effect:hover {
+    -webkit-animation-name: scaleDraw;
+    -webkit-animation-timing-function: ease-in-out;
+    -webkit-animation-iteration-count: infinite;
+    -webkit-animation-duration: 1.5s;
 }
 
 html {
     touch-action: manipulation;
     height: 100%;
-    /* header menu圖片設定 */
-    $headMenu: 'top_menu_01', 'top_menu_02', 'top_menu_03', 'top_menu_04', 'top_menu_05';
-    @each $currentPic in $headMenu {
-        .#{$currentPic} {
-            background: url('../img/#{$currentPic}.png') no-repeat center;
-        }
-    }
     /* footer menu圖片設定 */
-    $footMenu: 'bottom_menu_01',
-    'bottom_menu_02',
-    'bottom_menu_03',
-    'bottom_menu_04',
-    'bottom_menu_05',
-    'bottom_menu_06';
+    $footMenu: 'bottom_menu_01', 'bottom_menu_02', 'bottom_menu_03', 'bottom_menu_04', 'bottom_menu_05', 'bottom_menu_06';
     @each $currentPic in $footMenu {
         .#{$currentPic} {
             background: url('../img/#{$currentPic}.png') no-repeat center;
@@ -39,8 +47,8 @@ html {
             height: 100%;
             position: absolute;
             background: url('../img/bg.jpg') no-repeat;
-            // background: url('../img/lobby_工作區域\ 1.png\ 的副本.png') no-repeat;
-            background-size: 100% 100%;
+            background-size: cover;
+            overflow: hidden;
             .header {
                 height: 180px;
                 .header-l {
@@ -69,7 +77,7 @@ html {
                     .user-info {
                         margin-right: 10px;
                         p {
-                            color: #ffffff;
+                            color: $white;
                             font-size: 16px;
                             font-weight: bold;
                             margin-bottom: 8px;
@@ -82,13 +90,7 @@ html {
                                 width: 75%;
                                 height: 24px;
                                 background: #fff00e;
-                                /* Old browsers */
-                                background: -moz-linear-gradient(top, #fff00e 0%, #f8cb0a 100%);
-                                /* FF3.6-15 */
-                                background: -webkit-linear-gradient(top, #fff00e 0%, #f8cb0a 100%);
-                                /* Chrome10-25,Safari5.1-6 */
                                 background: linear-gradient(to bottom, #fff00e 0%, #f8cb0a 100%);
-                                /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
                                 border: 1px solid #FFF00E;
                                 border-radius: 24px;
                                 text-align: center;
@@ -109,7 +111,7 @@ html {
                         }
                         span {
                             font-weight: bold;
-                            color: #ffffff;
+                            color: $white;
                         }
                     }
                 }
@@ -118,13 +120,7 @@ html {
                     height: 40px;
                     position: relative;
                     background: #003c69;
-                    /* Old browsers */
-                    background: -moz-linear-gradient(top, #003c69 0%, #003b67 50%, #003155 51%, #003155 100%);
-                    /* FF3.6-15 */
-                    background: -webkit-linear-gradient(top, #003c69 0%, #003b67 50%, #003155 51%, #003155 100%);
-                    /* Chrome10-25,Safari5.1-6 */
                     background: linear-gradient(to bottom, #003c69 0%, #003b67 50%, #003155 51%, #003155 100%);
-                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
                     border: 1px solid #055A96;
                     border-radius: 15px;
                     .amount-icon {
@@ -137,7 +133,7 @@ html {
                     p {
                         font-size: 24px;
                         font-weight: bold;
-                        color: #ffffff;
+                        color: $white;
                         line-height: 40px;
                         text-align: right;
                         padding: 0 15px 0 60px;
@@ -147,21 +143,28 @@ html {
                     a {
                         background-size: contain;
                         position: relative;
-                        color: #ffffff;
+                        color: $white;
                         display: block;
-                        .mark {
-                            width: 30px;
-                            height: 30px;
+                        .badge {
+                            width: 4vh;
+                            height: 4vh;
                             border-radius: 50%;
-                            background-color: #CB0F03;
-                            border: 3px solid #FF4E40;
+                            background: url('../img/count_bg.svg') no-repeat;
                             position: absolute;
                             font-size: 22px;
                             font-weight: bold;
-                            line-height: 30px;
+                            line-height: 4vh;
                             text-align: center;
-                            right: 10px;
-                            bottom: 40px;
+                            right: 10%;
+                            bottom: 30%;
+                        }
+                        .badge-new {
+                            width: 6vh;
+                            height: 6vh;
+                            background: url('../img/new.svg') no-repeat;
+                            position: absolute;
+                            right: 10%;
+                            bottom: 15%;
                         }
                     }
                 }
@@ -172,10 +175,7 @@ html {
                 .giftList {
                     width: 20%;
                     position: absolute;
-                    background: url('../img/daily_quest_header.png') no-repeat top;
-                    background-size: contain;
-                    padding-top: 140px;
-                    top: -100px;
+                    top: -12%;
                     left: 30px;
                     z-index: 99;
                     a {
@@ -184,7 +184,7 @@ html {
                         background: url('../img/quest_bg.png') no-repeat center;
                         background-size: contain;
                         position: relative;
-                        padding: 0 20px;
+                        padding: 0 35% 0 10%;
                         &.active::before {
                             width: 100%;
                             height: 11vh;
@@ -201,19 +201,21 @@ html {
                             left: 0px;
                         }
                         &.active span {
-                            width: 60px;
+                            width: 7vh;
+                            min-width: 50px;
                         }
                         span {
-                            width: 50px;
+                            width: 6vh;
+                            min-width: 40px;
                             display: block;
-                            margin-right: 10px;
+                            margin-right: 4%;
                             img {
                                 width: 100%;
                                 height: auto;
                             }
                         }
                         .giftList-icon {
-                            width: 100px;
+                            width: 10vh;
                             position: absolute;
                             top: 0px;
                             right: -20px;
@@ -226,12 +228,11 @@ html {
                 }
             }
             .mainGame {
-                width: 75%;
+                width: 72%;
                 position: absolute;
                 right: 30px;
                 top: 30px;
                 a {
-                    // width: 440px;
                     width: 45vh;
                     display: block;
                     img {
@@ -244,7 +245,7 @@ html {
             height: 84px;
             background-color: #07222D;
             .chatroom {
-                width: 545px;
+                width: 30%;
                 height: 200px;
                 position: absolute;
                 background-color: #071824;
@@ -258,7 +259,7 @@ html {
                     overflow: hidden;
                     margin-bottom: 10px;
                     ul {
-                        color: #ffffff;
+                        color: $white;
                         overflow: auto;
                         margin-right: 10px;
                         li {
@@ -269,13 +270,16 @@ html {
                             margin-bottom: 0px;
                         }
                     }
+                    a {
+                        min-width: 35px;
+                    }
                 }
                 .chatList-icon-01,
                 .chatList-icon-02,
                 .chatList-icon-03 {
-                    width: 70px;
+                    width: 6vh;
                     height: 26px;
-                    color: #ffffff;
+                    color: $white;
                     font-size: 16px;
                     font-weight: bold;
                     text-align: center;
@@ -285,72 +289,62 @@ html {
                     margin-right: 10px;
                 }
                 .chatList-icon-01 {
-                    background: #ffdb00;
-                    /* Old browsers */
-                    background: -moz-linear-gradient(top, #ffdb00 0%, #f26900 100%);
-                    /* FF3.6-15 */
-                    background: -webkit-linear-gradient(top, #ffdb00 0%, #f26900 100%);
-                    /* Chrome10-25,Safari5.1-6 */
-                    background: linear-gradient(to bottom, #ffdb00 0%, #f26900 100%);
-                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    background: $chatList_bg01;
                 }
                 .chatList-icon-02 {
-                    background: #47b4ff;
-                    /* Old browsers */
-                    background: -moz-linear-gradient(top, #47b4ff 0%, #1e75ff 100%);
-                    /* FF3.6-15 */
-                    background: -webkit-linear-gradient(top, #47b4ff 0%, #1e75ff 100%);
-                    /* Chrome10-25,Safari5.1-6 */
-                    background: linear-gradient(to bottom, #47b4ff 0%, #1e75ff 100%);
-                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    background: $chatList_bg02;
                 }
                 .chatList-icon-03 {
-                    background: #ff6536;
-                    /* Old browsers */
-                    background: -moz-linear-gradient(top, #ff6536 0%, #ff2703 100%);
-                    /* FF3.6-15 */
-                    background: -webkit-linear-gradient(top, #ff6536 0%, #ff2703 100%);
-                    /* Chrome10-25,Safari5.1-6 */
-                    background: linear-gradient(to bottom, #ff6536 0%, #ff2703 100%);
-                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    background: $chatList_bg03;
                 }
                 .chatList-text {
                     flex: 1;
                 }
                 .font-green {
-                    color: #8DC21F;
+                    color: $green;
                 }
                 .font-blue {
-                    color: #2AB7D6;
+                    color: $blue;
                 }
                 .font-yellow {
-                    color: #F5E800;
+                    color: $yellow;
                 }
                 .font-orange {
-                    color: #F35915;
+                    color: $carrotOrange;
                 }
                 .chatroom-bottom {
                     height: 35px;
-                    input {
-                        @include boxSizing;
-                        width: 100%;
+                    .chatInput {
                         position: relative;
-                        background-color: #032E39;
-                        border: 0;
-                        border-radius: 3px;
-                        height: 35px;
-                        padding: 5px 10px;
-                        margin-right: 10px;
+                        flex: 1;
+                        margin-right: 2%;
+                        input {
+                            @include boxSizing;
+                            width: 100%;
+                            position: relative;
+                            background-color: #032E39;
+                            border: 0;
+                            border-radius: 3px;
+                            height: 35px;
+                            padding: 5px 35px 5px 10px;
+                            margin-right: 10px;
+                        }
+                        .chatSend {
+                            position: absolute;
+                            top: 2%;
+                            right: 0px;
+                        }
+                    }
+                    a {
+                        min-width: 35px;
                     }
                 }
             }
             .footMenu {
-                width: 100%;
+                width: 70%;
                 height: 100%;
                 padding: 0 10px;
                 a {
-                    // width: 178px;
-                    // height: 64px;
                     width: 20vh;
                     height: 8vh;
                     background-size: contain;
